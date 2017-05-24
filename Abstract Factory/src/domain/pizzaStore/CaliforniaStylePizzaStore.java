@@ -1,7 +1,6 @@
 package domain.pizzaStore;
 
 import domain.ingredients.factory.CaliforniaPizzaIngredientFactory;
-import domain.ingredients.factory.NYPizzaIngredientFactory;
 import domain.ingredients.factory.PizzaIngredientFactory;
 import domain.pizza.CheesePizza;
 import domain.pizza.ClamPizza;
