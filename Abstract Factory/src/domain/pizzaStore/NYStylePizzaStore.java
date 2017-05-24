@@ -1,6 +1,5 @@
 package domain.pizzaStore;
 
-import domain.SimplePizzaFactory;
 import domain.pizza.NYStyleCheesePizza;
 import domain.pizza.NYStyleClamPizza;
 import domain.pizza.NYStyleGreekPizza;

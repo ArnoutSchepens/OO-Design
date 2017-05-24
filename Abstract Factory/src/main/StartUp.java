@@ -13,7 +13,7 @@ public class StartUp
 		nyPizzastore.orderPizza("cheese");
 		
 		Pizzastore chicagoPizzaStore = new ChicagoStylePizzaStore();
-		chicagoPizzaStore.orderPizza("clam");
+		chicagoPizzaStore.orderPizza("cheese");
 		
 	}
 

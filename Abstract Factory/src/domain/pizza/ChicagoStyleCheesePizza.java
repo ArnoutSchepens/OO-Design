@@ -2,27 +2,17 @@ package domain.pizza;
 
 public class ChicagoStyleCheesePizza extends Pizza
 {
-	@Override
-	public void prepare()
+
+	public ChicagoStyleCheesePizza()
 	{
-		System.out.println("Preparing the Chicago cheese pizza");
+		name = "Chicago Style Deep Dish Cheese Pizza";
+		dough = "Extra Thick Crust Dough";
+		sauce = "Plum Tomato Sauce";
+		toppings.add("Shredded Mozzarella Cheese");
 	}
-	
-	@Override
-	public void bake()
-	{
-		System.out.println("Baking the Chicago cheese pizza");
-	}
-	
-	@Override
+
 	public void cut()
 	{
-		System.out.println("Cutting the Chicago cheese pizza");
-	}
-	
-	@Override
-	public void box()
-	{
-		System.out.println("Boxing the Chicago cheese pizza\n");
+		System.out.println("Cutting the pizza into square slices");
 	}
 }

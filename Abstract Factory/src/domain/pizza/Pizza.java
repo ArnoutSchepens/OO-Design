@@ -1,14 +1,40 @@
 package domain.pizza;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Pizza
 {
 
-	public abstract void prepare();
+	String name;
+	String dough;
+	String sauce;
+	List<String> toppings = new ArrayList<>();
 
-	public abstract void bake();
+	public void prepare()
+	{
+		System.out.println("Preparing " + name);
+		System.out.println("Tossing dough");
+		System.out.println("Adding toppins: ");
+		toppings.forEach(t ->
+		{
+			System.out.println("  " + t);
+		});
+	}
 
-	public abstract void cut();
+	public void bake()
+	{
+		System.out.println("Bake for 25 minutes at 350");
+	}
 
-	public abstract void box();
+	public void cut()
+	{
+		System.out.println("Cutting the pizza into diagonal slices");
+	}
+
+	public void box()
+	{
+		System.out.println("Place pizza in official PizzaStore box\n");
+	}
 
 }
