@@ -1,6 +1,6 @@
 package domain.pizza;
 
-public class ChicagoStyleVeggiePizza extends Pizza
+public class ChicagoStyleVeggiePizza extends ChicagoStylePizza
 {
 	@Override
 	public void prepare()
