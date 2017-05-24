@@ -1,26 +1,14 @@
 package domain.pizza;
 
-public class Pizza
+public abstract class Pizza
 {
 
-	public void prepare()
-	{
-		System.out.println("Preparing pizza");
-	}
+	public abstract void prepare();
 
-	public void bake()
-	{
-		System.out.println("Baking pizza");
-	}
+	public abstract void bake();
 
-	public void cut()
-	{
-		System.out.println("Cutting pizza");
-	}
+	public abstract void cut();
 
-	public void box()
-	{
-		System.out.println("Boxing the pizza");
-	}
+	public abstract void box();
 
 }
