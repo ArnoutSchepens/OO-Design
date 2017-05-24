@@ -5,7 +5,7 @@ public class NYStyleCheesePizza extends Pizza
 	@Override
 	public void prepare()
 	{
-		System.out.println("Preparing the NY cheese pizza");
+		System.out.println("/nPreparing the NY cheese pizza");
 	}
 	
 	@Override
@@ -23,6 +23,6 @@ public class NYStyleCheesePizza extends Pizza
 	@Override
 	public void box()
 	{
-		System.out.println("Boxing the NY cheese pizza");
+		System.out.println("Boxing the NY cheese pizza\n");
 	}
 }

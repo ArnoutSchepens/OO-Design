@@ -23,6 +23,6 @@ public class ChicagoStyleGreekPizza extends Pizza
 	@Override
 	public void box()
 	{
-		System.out.println("Boxing the Chicago greek pizza");
+		System.out.println("Boxing the Chicago greek pizza\n");
 	}
 }

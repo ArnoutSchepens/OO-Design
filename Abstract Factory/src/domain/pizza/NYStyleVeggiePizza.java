@@ -23,6 +23,6 @@ public class NYStyleVeggiePizza extends Pizza
 	@Override
 	public void box()
 	{
-		System.out.println("Boxing the NY veggie pizza");
+		System.out.println("Boxing the NY veggie pizza\n");
 	}
 }

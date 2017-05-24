@@ -23,6 +23,6 @@ public class ChicagoStyleCheesePizza extends Pizza
 	@Override
 	public void box()
 	{
-		System.out.println("Boxing the Chicago cheese pizza");
+		System.out.println("Boxing the Chicago cheese pizza\n");
 	}
 }
