@@ -4,9 +4,8 @@ import domain.CeilingFan;
 
 public class CeilingFanOnCommand implements Command
 {
-
 	private CeilingFan ceilingFan;
-	
+
 	public CeilingFanOnCommand(CeilingFan ceilingFan)
 	{
 		this.ceilingFan = ceilingFan;
@@ -15,7 +14,12 @@ public class CeilingFanOnCommand implements Command
 	@Override
 	public void execute()
 	{
-		System.out.println("Ceilingfan on");
+		ceilingFan.on();
 	}
 
+	@Override
+	public void undo()
+	{
+		ceilingFan.off();
+	}
 }

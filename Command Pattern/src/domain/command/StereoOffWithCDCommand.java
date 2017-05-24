@@ -4,7 +4,6 @@ import domain.Stereo;
 
 public class StereoOffWithCDCommand implements Command
 {
-
 	private Stereo stereo;
 	
 	public StereoOffWithCDCommand(Stereo stereo)
@@ -15,7 +14,12 @@ public class StereoOffWithCDCommand implements Command
 	@Override
 	public void execute()
 	{
-		System.out.println("Stereo off");
+		stereo.off();
 	}
-
+	
+	@Override
+	public void undo()
+	{
+		stereo.on();
+	}
 }

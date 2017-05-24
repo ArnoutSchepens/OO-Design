@@ -9,8 +9,13 @@ public class GarageDoor
 		this.location = location;
 	}
 	
-	public void open()
+	public void up()
 	{
-		System.out.println("Open garagedoor");
+		System.out.println("Garagedoor up in " + location);
+	}
+
+	public void down()
+	{
+		System.out.println("Garagedoor down in " + location);
 	}
 }

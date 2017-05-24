@@ -8,6 +8,7 @@ public class SimpleRemoteControl
 	
 	Command[] onCommands;
 	Command[] offCommands;
+	Command undoCommand;
 	
 	public SimpleRemoteControl()
 	{
@@ -20,6 +21,7 @@ public class SimpleRemoteControl
 			onCommands[i] = noCommand;
 			offCommands[i] = noCommand;
 		}
+		undoCommand = noCommand;
 	}
 	
 	public void setCommand(int slot, Command onCommand, Command offCommand)
@@ -31,11 +33,18 @@ public class SimpleRemoteControl
 	public void onButtonWasPushed(int slot)
 	{
 		onCommands[slot].execute();
+		undoCommand = onCommands[slot];
 	}
 	
 	public void offButtonWasPushed(int slot)
 	{
 		offCommands[slot].execute();
+		undoCommand = offCommands[slot];
+	}
+	
+	public void undoButtonWasPushed()
+	{
+		undoCommand.undo();
 	}
 	
 	@Override
@@ -47,7 +56,7 @@ public class SimpleRemoteControl
 		{
 			buffer.append("[slot " + i + "]" + onCommands[i].getClass().getSimpleName() + "     " + offCommands[i].getClass().getSimpleName() + "\n"); 
 		}
-		
+		buffer.append(undoCommand.getClass().getSimpleName() + "\n");
 		return buffer.toString();
 	}
 	

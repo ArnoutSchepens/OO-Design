@@ -4,7 +4,7 @@ import domain.Stereo;
 
 public class StereoOnWithCDCommand implements Command
 {
-	Stereo stereo;
+	private Stereo stereo;
 	
 	public StereoOnWithCDCommand(Stereo stereo)
 	{
@@ -17,5 +17,9 @@ public class StereoOnWithCDCommand implements Command
 		stereo.on();
 		stereo.setCd();
 		stereo.setVolume(11);
+	}
+	@Override
+	public void undo()
+	{
 	}
 }

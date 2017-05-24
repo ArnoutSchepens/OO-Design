@@ -25,4 +25,9 @@ public class Stereo
 		System.out.println("Set volume to " + volume);
 	}
 
+	public void off()
+	{
+		System.out.println("Stereo off");
+	}
+
 }

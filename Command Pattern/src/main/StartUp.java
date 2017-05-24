@@ -48,11 +48,21 @@ public class StartUp
 		
 		System.out.println(remote);
 		
-		for(int i = 0; i < 7; i++)
-		{
-			remote.onButtonWasPushed(i);
-			remote.offButtonWasPushed(i);
-		}
+		remote.onButtonWasPushed(0);
+		remote.offButtonWasPushed(0);
+		System.out.println(remote);
+		remote.undoButtonWasPushed();
+		System.out.println(remote);
+		remote.offButtonWasPushed(0);
+		remote.onButtonWasPushed(0);
+		System.out.println(remote);
+		remote.undoButtonWasPushed();
+		
+//		for(int i = 0; i < 7; i++)
+//		{
+//			remote.onButtonWasPushed(i);
+//			remote.offButtonWasPushed(i);
+//		}
 	}
 
 }
