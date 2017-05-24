@@ -1,35 +1,32 @@
-package domain;
+package domain.pizzaStore;
 
+import domain.SimplePizzaFactory;
 import domain.pizza.NYStyleCheesePizza;
 import domain.pizza.NYStyleClamPizza;
 import domain.pizza.NYStyleGreekPizza;
 import domain.pizza.NYStylePepperoniPizza;
-import domain.pizza.Pizza;
 import domain.pizza.NYStyleVeggiePizza;
+import domain.pizza.Pizza;
 
-public class SimplePizzaFactory
+public class NYStylePizzaStore extends Pizzastore
 {
+	@Override
 	public Pizza createPizza(String type)
 	{
-		Pizza pizza = null;
-		
 		switch(type.toLowerCase())
 		{
 			case "cheese":
-				pizza = new NYStyleCheesePizza();
-				break;
+				return new NYStyleCheesePizza();
 			case "greek":
-				pizza = new NYStyleGreekPizza();
-				break;
+				return new NYStyleGreekPizza();
 			case "pepperoni":
-				pizza = new NYStylePepperoniPizza();
-				break;
+				return new NYStylePepperoniPizza();
 			case "veggie":
-				pizza = new NYStyleVeggiePizza();
+				return new NYStyleVeggiePizza();
 			case "clam":
-				pizza = new NYStyleClamPizza();
+				return new NYStyleClamPizza();
+			default:
+				return null;
 		}
-		
-		return pizza;
 	}
 }

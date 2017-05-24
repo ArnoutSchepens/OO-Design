@@ -1,4 +1,4 @@
-package domain;
+package domain.pizza;
 
 public class Pizza
 {
