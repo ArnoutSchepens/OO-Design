@@ -5,12 +5,16 @@ import domain.GarageDoor;
 import domain.Light;
 import domain.SimpleRemoteControl;
 import domain.Stereo;
+import domain.command.CeilingFanHighCommand;
+import domain.command.CeilingFanLowCommand;
+import domain.command.CeilingFanMediumCommand;
 import domain.command.CeilingFanOffCommand;
-import domain.command.CeilingFanOnCommand;
+import domain.command.Command;
 import domain.command.GarageDoorDownCommand;
 import domain.command.GarageDoorUpCommand;
 import domain.command.LightOffCommand;
 import domain.command.LightOnCommand;
+import domain.command.MacroCommand;
 import domain.command.StereoOffWithCDCommand;
 import domain.command.StereoOnWithCDCommand;
 
@@ -32,7 +36,10 @@ public class StartUp
 		LightOnCommand kitchenLightOn = new LightOnCommand(kitchenLight);
 		LightOffCommand kitchenLightOff = new LightOffCommand(kitchenLight);
 		
-		CeilingFanOnCommand ceilingFanOn = new CeilingFanOnCommand(ceilingFan);
+		
+		CeilingFanLowCommand ceilingFanLow = new CeilingFanLowCommand(ceilingFan);
+		CeilingFanMediumCommand ceilingFanMedium = new CeilingFanMediumCommand(ceilingFan);
+		CeilingFanHighCommand ceilingFanHigh = new CeilingFanHighCommand(ceilingFan);
 		CeilingFanOffCommand ceilingFanOff = new CeilingFanOffCommand(ceilingFan);
 		
 		GarageDoorUpCommand garageDoorOpen = new GarageDoorUpCommand(garageDoor);
@@ -41,28 +48,33 @@ public class StartUp
 		StereoOnWithCDCommand stereoOnWithCD = new StereoOnWithCDCommand(stereo);
 		StereoOffWithCDCommand stereoOffWithCD = new StereoOffWithCDCommand(stereo);
 		
+		Command[] macroOn = {livingRoomLightOn, kitchenLightOn, stereoOnWithCD};
+		Command[] macroOff = {livingRoomLightOff, kitchenLightOff, stereoOffWithCD};
+		
+		MacroCommand allOn = new MacroCommand(macroOn);
+		MacroCommand allOf = new MacroCommand(macroOff);
+		
 		remote.setCommand(0, livingRoomLightOn, livingRoomLightOff);
 		remote.setCommand(1, kitchenLightOn, kitchenLightOff);
-		remote.setCommand(2, ceilingFanOn, ceilingFanOff);
-		remote.setCommand(3, stereoOnWithCD, stereoOffWithCD);
-		
+		remote.setCommand(2, ceilingFanLow, ceilingFanOff);
+		remote.setCommand(3, ceilingFanMedium, ceilingFanOff);
+		remote.setCommand(4, ceilingFanHigh, ceilingFanOff);
+		remote.setCommand(5, stereoOnWithCD, stereoOffWithCD);
+		remote.setCommand(6, allOn, allOf);
+
 		System.out.println(remote);
-		
-		remote.onButtonWasPushed(0);
-		remote.offButtonWasPushed(0);
-		System.out.println(remote);
-		remote.undoButtonWasPushed();
-		System.out.println(remote);
-		remote.offButtonWasPushed(0);
-		remote.onButtonWasPushed(0);
-		System.out.println(remote);
-		remote.undoButtonWasPushed();
 		
 //		for(int i = 0; i < 7; i++)
 //		{
 //			remote.onButtonWasPushed(i);
 //			remote.offButtonWasPushed(i);
+//			remote.undoButtonWasPushed();
 //		}
+		
+		remote.onButtonWasPushed(6);
+		remote.offButtonWasPushed(6);
+		remote.undoButtonWasPushed();
+		
 	}
 
 }

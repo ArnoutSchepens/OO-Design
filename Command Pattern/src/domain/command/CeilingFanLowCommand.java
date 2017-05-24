@@ -2,21 +2,22 @@ package domain.command;
 
 import domain.CeilingFan;
 
-public class CeilingFanOffCommand implements Command
+public class CeilingFanLowCommand implements Command
 {
+	
 	private CeilingFan ceilingFan;
 	private int previousSpeed;
 
-	public CeilingFanOffCommand(CeilingFan ceilingFan)
+	public CeilingFanLowCommand(CeilingFan ceilingFan)
 	{
 		this.ceilingFan = ceilingFan;
 	}
-
+	
 	@Override
 	public void execute()
 	{
 		previousSpeed = ceilingFan.getSpeed();
-		ceilingFan.off();
+		ceilingFan.low();
 	}
 
 	@Override
