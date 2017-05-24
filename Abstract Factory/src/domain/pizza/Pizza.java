@@ -1,26 +1,27 @@
 package domain.pizza;
 
-import java.util.ArrayList;
-import java.util.List;
+import domain.ingredients.ICheese;
+import domain.ingredients.IDough;
+import domain.ingredients.IPepperoni;
+import domain.ingredients.ISauce;
+import domain.ingredients.ISeafood;
 
 public abstract class Pizza
 {
 
 	String name;
-	String dough;
-	String sauce;
-	List<String> toppings = new ArrayList<>();
+	IDough dough;
+	ISauce sauce;
+	ICheese cheese;
+	ISeafood seafood;
+	IPepperoni pepperoni;
 
-	public void prepare()
+	public void setName(String name)
 	{
-		System.out.println("Preparing " + name);
-		System.out.println("Tossing dough");
-		System.out.println("Adding toppins: ");
-		toppings.forEach(t ->
-		{
-			System.out.println("  " + t);
-		});
+		this.name = name;
 	}
+	
+	public abstract void prepare();
 
 	public void bake()
 	{
@@ -29,12 +30,17 @@ public abstract class Pizza
 
 	public void cut()
 	{
-		System.out.println("Cutting the pizza into diagonal slices");
+		System.out.println("Cutting the pizza into slices");
 	}
-
+	
 	public void box()
 	{
 		System.out.println("Place pizza in official PizzaStore box\n");
+	}
+	
+	public String toString()
+	{
+		return name;
 	}
 
 }

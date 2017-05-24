@@ -1,31 +1,47 @@
 package domain.pizzaStore;
 
-import domain.pizza.NYStyleCheesePizza;
-import domain.pizza.NYStyleClamPizza;
-import domain.pizza.NYStyleGreekPizza;
-import domain.pizza.NYStylePepperoniPizza;
-import domain.pizza.NYStyleVeggiePizza;
+import domain.ingredients.factory.NYPizzaIngredientFactory;
+import domain.ingredients.factory.PizzaIngredientFactory;
+import domain.pizza.CheesePizza;
+import domain.pizza.ClamPizza;
+import domain.pizza.GreekPizza;
+import domain.pizza.PepperoniPizza;
 import domain.pizza.Pizza;
+import domain.pizza.VeggiePizza;
 
 public class NYStylePizzaStore extends Pizzastore
 {
 	@Override
 	public Pizza createPizza(String type)
 	{
+		Pizza pizza = null;
+		
+		PizzaIngredientFactory ingredientFactory = new NYPizzaIngredientFactory();
+		
 		switch(type.toLowerCase())
 		{
 			case "cheese":
-				return new NYStyleCheesePizza();
+				pizza = new CheesePizza(ingredientFactory);
+				pizza.setName("New York Style Cheese Pizza");
+				break;
 			case "greek":
-				return new NYStyleGreekPizza();
+				pizza = new GreekPizza(ingredientFactory);
+				pizza.setName("New York Style Greek Pizza");
+				break;
 			case "pepperoni":
-				return new NYStylePepperoniPizza();
+				pizza = new PepperoniPizza(ingredientFactory);
+				pizza.setName("New York Style Pepperoni Pizza");
+				break;
 			case "veggie":
-				return new NYStyleVeggiePizza();
+				pizza = new VeggiePizza(ingredientFactory);
+				pizza.setName("New York Style Veggie Pizza");
+				break;
 			case "clam":
-				return new NYStyleClamPizza();
-			default:
-				return null;
+				pizza = new ClamPizza(ingredientFactory);
+				pizza.setName("New York Style Clam Pizza");
+				break;
 		}
+		
+		return pizza;
 	}
 }

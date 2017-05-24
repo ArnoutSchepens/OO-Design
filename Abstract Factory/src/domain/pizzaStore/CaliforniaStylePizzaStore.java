@@ -1,15 +1,14 @@
 package domain.pizzaStore;
 
-import domain.pizza.CaliforniaStyleCheesePizza;
-import domain.pizza.CaliforniaStyleClamPizza;
-import domain.pizza.CaliforniaStyleGreekPizza;
-import domain.pizza.CaliforniaStylePepperoniPizza;
-import domain.pizza.CaliforniaStyleVeggiePizza;
-import domain.pizza.ChicagoStyleClamPizza;
-import domain.pizza.ChicagoStyleGreekPizza;
-import domain.pizza.ChicagoStylePepperoniPizza;
-import domain.pizza.ChicagoStyleVeggiePizza;
+import domain.ingredients.factory.CaliforniaPizzaIngredientFactory;
+import domain.ingredients.factory.NYPizzaIngredientFactory;
+import domain.ingredients.factory.PizzaIngredientFactory;
+import domain.pizza.CheesePizza;
+import domain.pizza.ClamPizza;
+import domain.pizza.GreekPizza;
+import domain.pizza.PepperoniPizza;
 import domain.pizza.Pizza;
+import domain.pizza.VeggiePizza;
 
 public class CaliforniaStylePizzaStore extends Pizzastore
 {
@@ -17,21 +16,35 @@ public class CaliforniaStylePizzaStore extends Pizzastore
 	@Override
 	protected Pizza createPizza(String type)
 	{
+		Pizza pizza = null;
+
+		PizzaIngredientFactory ingredientFactory = new CaliforniaPizzaIngredientFactory();
+
 		switch(type.toLowerCase())
 		{
 			case "cheese":
-				return new CaliforniaStyleCheesePizza();
+				pizza = new CheesePizza(ingredientFactory);
+				pizza.setName("California Style Cheese Pizza");
+				break;
 			case "greek":
-				return new CaliforniaStyleGreekPizza();
+				pizza = new GreekPizza(ingredientFactory);
+				pizza.setName("California Style Greek Pizza");
+				break;
 			case "pepperoni":
-				return new CaliforniaStylePepperoniPizza();
+				pizza = new PepperoniPizza(ingredientFactory);
+				pizza.setName("California Style Pepperoni Pizza");
+				break;
 			case "veggie":
-				return new CaliforniaStyleVeggiePizza();
+				pizza = new VeggiePizza(ingredientFactory);
+				pizza.setName("California Style Veggie Pizza");
+				break;
 			case "clam":
-				return new CaliforniaStyleClamPizza();
-			default:
-				return null;
+				pizza = new ClamPizza(ingredientFactory);
+				pizza.setName("California Style Clam Pizza");
+				break;
 		}
+
+		return pizza;
 	}
 
 }
