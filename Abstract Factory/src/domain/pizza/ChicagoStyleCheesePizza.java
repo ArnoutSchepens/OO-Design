@@ -1,6 +1,6 @@
 package domain.pizza;
 
-public class ChicagoStyleCheesePizza extends Pizza
+public class ChicagoStyleCheesePizza extends ChicagoStylePizza
 {
 
 	public ChicagoStyleCheesePizza()
@@ -11,8 +11,4 @@ public class ChicagoStyleCheesePizza extends Pizza
 		toppings.add("Shredded Mozzarella Cheese");
 	}
 
-	public void cut()
-	{
-		System.out.println("Cutting the pizza into square slices");
-	}
 }
