@@ -2,8 +2,9 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
-public class PancakeHouseMenu
+public class PancakeHouseMenu implements Menu
 {
 	private List<MenuItem> menuItems;
 	
@@ -23,8 +24,10 @@ public class PancakeHouseMenu
 		menuItems.add(menuItem);
 	}
 	
-	public List<MenuItem> getMenuItems()
+	public Iterator<MenuItem> createIterator()
 	{
-		return menuItems;
+		return menuItems.iterator();
 	}
+
+
 }

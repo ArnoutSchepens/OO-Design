@@ -1,6 +1,8 @@
 package domain;
 
-public class DinerMenu
+import java.util.Iterator;
+
+public class DinerMenu implements Menu
 {
 	private static final int MAX_ITEMS = 4;
 	private int numberOfItems = 0;
@@ -28,10 +30,8 @@ public class DinerMenu
 		}
 	}
 	
-	public MenuItem[] getMenuItems()
+	public Iterator<MenuItem> createIterator()
 	{
-		return menuItems;
+		return new DinerMenuIterator(menuItems);
 	}
-	
-	
 }
