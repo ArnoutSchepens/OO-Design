@@ -1,36 +1,31 @@
 package domain;
 
 import java.util.Iterator;
+import java.util.List;
 
 public class Waitress
 {
-	private Menu pancakeHouseMenu;
-	private Menu dinerMenu;
-	private Menu cafeMenu;
+	private List<Menu> menus;
 	
-	public Waitress(PancakeHouseMenu pancakeHouseMenu, DinerMenu dinerMenu, CafeMenu cafeMenu)
+	public Waitress(List<Menu> menus)
 	{
-		this.pancakeHouseMenu = pancakeHouseMenu;
-		this.dinerMenu = dinerMenu;
-		this.cafeMenu = cafeMenu;
+		this.menus = menus;
 	}
 	
 	public void printMenu()
 	{
-		Iterator<MenuItem> pancakeIterator = pancakeHouseMenu.createIterator();
-		Iterator<MenuItem> dinerIterator = dinerMenu.createIterator();
-		Iterator<MenuItem> cafeIterator = cafeMenu.createIterator();
-		
-		System.out.println("MENU\n---\nBREAKFAST");
-		printMenu(pancakeIterator);
-		System.out.println("\nLUNCH");
-		printMenu(dinerIterator);
-		System.out.println("\nDINNER");
-		printMenu(cafeIterator);
+		Iterator<Menu> menuIterator = menus.iterator();
+		while(menuIterator.hasNext())
+		{
+			Menu menu = (Menu) menuIterator.next();
+			printMenu(menu.createIterator());
+		}
 	}
 	
 	private void printMenu(Iterator<MenuItem> iterator)
 	{
+		System.out.println(iterator.getClass().getSimpleName());
+		
 		while(iterator.hasNext())
 		{
 			MenuItem menuItem = (MenuItem) iterator.next();
