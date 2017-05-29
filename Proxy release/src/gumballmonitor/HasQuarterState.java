@@ -1,55 +1,41 @@
-package domain.gumballstate;
+package headfirst.designpatterns.proxy.gumballmonitor;
+
 
 import java.util.Random;
 
-import domain.GumballMachine;
-
-public class HasQuarterState implements State
-{
+public class HasQuarterState implements State {
+	private static final long serialVersionUID = 2L;
 	Random randomWinner = new Random(System.currentTimeMillis());
 	GumballMachine gumballMachine;
-
-	public HasQuarterState(GumballMachine gumballMachine)
-	{
+ 
+	public HasQuarterState(GumballMachine gumballMachine) {
 		this.gumballMachine = gumballMachine;
 	}
-
-	public void insertQuarter()
-	{
+  
+	public void insertQuarter() {
 		System.out.println("You can't insert another quarter");
 	}
-
-	public void ejectQuarter()
-	{
+ 
+	public void ejectQuarter() {
 		System.out.println("Quarter returned");
 		gumballMachine.setState(gumballMachine.getNoQuarterState());
 	}
-
-	public void turnCrank()
-	{
+ 
+	public void turnCrank() {
 		System.out.println("You turned...");
 		int winner = randomWinner.nextInt(10);
-		if((winner == 0) && (gumballMachine.getCount() > 1))
-		{
+		if (winner == 0) {
 			gumballMachine.setState(gumballMachine.getWinnerState());
-		}
-		else
-		{
+		} else {
 			gumballMachine.setState(gumballMachine.getSoldState());
 		}
 	}
 
-	public void dispense()
-	{
-		System.out.println("No gumball dispensed");
-	}
-
-	public void refill()
-	{
-	}
-
-	public String toString()
-	{
+    public void dispense() {
+        System.out.println("No gumball dispensed");
+    }
+ 
+	public String toString() {
 		return "waiting for turn of crank";
 	}
 }

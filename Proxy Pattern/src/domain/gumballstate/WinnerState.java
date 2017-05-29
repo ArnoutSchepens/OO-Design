@@ -1,5 +1,7 @@
 package domain.gumballstate;
 
+import domain.GumballMachine;
+
 public class WinnerState implements State
 {
 	GumballMachine gumballMachine;
