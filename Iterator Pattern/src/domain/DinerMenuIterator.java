@@ -28,7 +28,7 @@ public class DinerMenuIterator implements Iterator<MenuItem>
 		position++;
 		return menuItem;
 	}
-	
+
 	@Override
 	public void remove()
 	{
@@ -36,11 +36,11 @@ public class DinerMenuIterator implements Iterator<MenuItem>
 			throw new IllegalStateException("You can't remove an item until you've done at least one next");
 		if(items[position] != null)
 		{
-			for(int i = position-1; i < (items.length-1); i++)
+			for(int i = position - 1; i < (items.length - 1); i++)
 			{
-				items[i] = items[i+1];
+				items[i] = items[i + 1];
 			}
-			items[items.length-1] = null;
+			items[items.length - 1] = null;
 		}
 	}
 

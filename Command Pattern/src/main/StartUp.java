@@ -54,7 +54,7 @@ public class StartUp
 		MacroCommand allOn = new MacroCommand(macroOn);
 		MacroCommand allOf = new MacroCommand(macroOff);
 		
-		remote.setCommand(0, livingRoomLightOn, livingRoomLightOff);
+//		remote.setCommand(0, livingRoomLightOn, livingRoomLightOff);
 		remote.setCommand(1, kitchenLightOn, kitchenLightOff);
 		remote.setCommand(2, ceilingFanLow, ceilingFanOff);
 		remote.setCommand(3, ceilingFanMedium, ceilingFanOff);
